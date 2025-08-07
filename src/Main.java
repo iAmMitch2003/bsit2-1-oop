@@ -1,15 +1,20 @@
-import java.util.Scanner;
-
 public class Main {
-    static int number = 0;
     public static void main(String[] args) {
+        Student s1 = new Student("Alice", 20, "BSIT", 85.0, 90.0, 88.0);
+        Student s2 = new Student("Bob", 19, "BSCS", 92.0, 95.0, 89.0);
+        Student s3 = new Student("Charlie", 21, "BSIT", 65.0, 70.0, 68.0);
 
-        Scanner scanner = new Scanner(System.in);
-        for (int i = 1; i <= 5; i++) {
-            System.out.print("Enter number " + i+ ": " );
-            number = number+scanner.nextInt();
+        Student[] students = { s1, s2, s3 };
+        int passingCount = 0;
 
+        for (Student st : students) {
+            st.displayInfo();
+            if (st.isPassing()) {
+                passingCount++;
+            }
         }
-        System.out.println("Total Number: "+number);
+
+        System.out.println("Summary: " + passingCount + " out of " +
+                students.length + " students are passing.");
     }
 }
