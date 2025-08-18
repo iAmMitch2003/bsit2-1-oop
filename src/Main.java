@@ -1,15 +1,9 @@
-import java.util.Scanner;
-
-public class Main {
-    static int number = 0;
     public static void main(String[] args) {
+        String studentName = "John Smith";
+        double average = calculateAverage(85.5, 92.0, 78.5, 90.0);
+        String letterGrade = getLetterGrade(average);
 
-        Scanner scanner = new Scanner(System.in);
-        for (int i = 1; i <= 5; i++) {
-            System.out.print("Enter number " + i+ ": " );
-            number = number+scanner.nextInt();
-
-        }
-        System.out.println("Total Number: "+number);
+        displayResult(studentName, average);
+        System.out.println();
+        displayResult(studentName, average, letterGrade);
     }
-}
