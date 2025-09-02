@@ -1,15 +1,11 @@
-import java.util.Scanner;
-
 public class Main {
-    static int number = 0;
     public static void main(String[] args) {
+        LibraryManager manager = new LibraryManager();
 
-        Scanner scanner = new Scanner(System.in);
-        for (int i = 1; i <= 5; i++) {
-            System.out.print("Enter number " + i+ ": " );
-            number = number+scanner.nextInt();
+        manager.showBooks();    // display initial books
+        manager.addBook();      // add a book
+        manager.removeBook();   // remove a book
 
-        }
-        System.out.println("Total Number: "+number);
+        System.out.println("Program completed successfully.");
     }
 }
