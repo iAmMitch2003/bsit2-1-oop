@@ -2,13 +2,13 @@
 import java.util.ArrayList;
 
 public class Book {
-    // Instance variables
+   
     private String title;
     private String author;
     private ArrayList<Integer> ratings;
     private static int totalBooks = 0;
 
-    // Constructor
+    
     public Book(String title, String author) {
         this.title = title;
         this.author = author;
@@ -16,7 +16,7 @@ public class Book {
         totalBooks++;
     }
 
-    // Method to add a single rating
+ 
     public void addRating(int rating) throws IllegalArgumentException {
         if (rating < 1 || rating > 5) {
             throw new IllegalArgumentException("Invalid rating: must be 1-5 stars");
@@ -24,7 +24,7 @@ public class Book {
         ratings.add(rating);
     }
 
-    // Method to calculate average rating
+
     public double getAverageRating() {
         if (ratings.isEmpty()) {
             return 0.0;
@@ -36,7 +36,7 @@ public class Book {
         return sum / ratings.size();
     }
 
-    // Method to get popularity level based on average rating
+  
     public String getPopularityLevel() {
         double avgRating = getAverageRating();
         if (avgRating == 0.0) {
@@ -54,7 +54,7 @@ public class Book {
         }
     }
 
-    // Method to add multiple ratings using varargs
+ 
     public void addMultipleRatings(int... ratings) {
         for (int rating : ratings) {
             try {
@@ -65,22 +65,21 @@ public class Book {
         }
     }
 
-    // Static method to get total books created
+
     public static int getTotalBooks() {
         return totalBooks;
     }
 
-    // Getter for title
+
     public String getTitle() {
         return title;
     }
 
-    // Getter for author
+    
     public String getAuthor() {
         return author;
     }
 
-    // toString method to display book details
     @Override
     public String toString() {
         return "Book: " + title + " by " + author + ", Average Rating: " + getAverageRating() +
