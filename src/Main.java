@@ -1,4 +1,4 @@
-public class TestBook {
+public class Main {
     public static void main(String[] args) {
       
         Book book1 = new Book("The Great Gatsby", "F. Scott Fitzgerald");
