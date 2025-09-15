@@ -1,15 +1,29 @@
-import java.util.Scanner;
-
-public class Main {
-    static int number = 0;
+public class PetClinicSystem {
     public static void main(String[] args) {
+        System.out.println("Welcome to the Pet Clinic!");
+        System.out.println("=============================");
 
-        Scanner scanner = new Scanner(System.in);
-        for (int i = 1; i <= 5; i++) {
-            System.out.print("Enter number " + i+ ": " );
-            number = number+scanner.nextInt();
+        Pet buddy = new TrainableDog("Buddy", 3);
+        Pet whiskers = new Cat("Whiskers", 2);
+        Pet tweety = new TrainableBird("Tweety", 1);
 
-        }
-        System.out.println("Total Number: "+number);
-    }
+        buddy.displayInfo();
+        buddy.makeSound();
+
+        whiskers.displayInfo();
+        whiskers.makeSound();
+
+        tweety.displayInfo();
+        tweety.makeSound();
+
+        System.out.println("\nTraining Session Started!");
+        System.out.println("=============================");
+
+        Trainer trainer = new Trainer();
+        trainer.train((Trainable) buddy);
+        trainer.train((Trainable) tweety);
+
+        System.out.println("\nService Charges:");
+        System.out.println("=============================");
+        PetService.main(null);
 }
