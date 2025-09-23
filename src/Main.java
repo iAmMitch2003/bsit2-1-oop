@@ -1,29 +1,39 @@
-public class PetClinicSystem {
+
+public class Main {
     public static void main(String[] args) {
-        System.out.println("Welcome to the Pet Clinic!");
-        System.out.println("=============================");
+        Media book1 = new Book("Java Fundamentals", "B001", "Robert Martin");
+        Media dvd1 = new DVD("OOP Concepts", "D001", "Tech Films");
+        Media mag1 = new Magazine("Programming Weekly", "M001", 15);
 
-        Pet buddy = new TrainableDog("Buddy", 3);
-        Pet whiskers = new Cat("Whiskers", 2);
-        Pet tweety = new TrainableBird("Tweety", 1);
+        LibraryUser student = new Student("Alice Johnson", "S12345");
+        LibraryUser teacher = new Teacher("Dr. Smith", "T001");
+        LibraryUser librarian = new Librarian("Mary Brown", "L001");
 
-        buddy.displayInfo();
-        buddy.makeSound();
+        System.out.println("\nAvailable Media:");
+        displayMediaInfo(book1);
+        displayMediaInfo(dvd1);
+        displayMediaInfo(mag1);
 
-        whiskers.displayInfo();
-        whiskers.makeSound();
+        System.out.println("\n=== Borrowing Test ===");
+        student.borrowMedia(book1);
+        teacher.borrowMedia(dvd1);
+        student.borrowMedia(book1);
 
-        tweety.displayInfo();
-        tweety.makeSound();
+        System.out.println("\n=== Returning Test ===");
+        student.returnMedia(book1);
+        librarian.borrowMedia(book1);
 
-        System.out.println("\nTraining Session Started!");
-        System.out.println("=============================");
+        System.out.println("\n=== User Information ===");
+        displayUserInfo(student);
+        displayUserInfo(teacher);
+        displayUserInfo(librarian);
+    }
 
-        Trainer trainer = new Trainer();
-        trainer.train((Trainable) buddy);
-        trainer.train((Trainable) tweety);
+    public static void displayMediaInfo(Media media) {
+        media.displayInfo();
+    }
 
-        System.out.println("\nService Charges:");
-        System.out.println("=============================");
-        PetService.main(null);
+    public static void displayUserInfo(LibraryUser user) {
+        System.out.println(user.getUserType() + " - Max borrow limit: " + user.getMaxBorrowLimit() + " items");
+    }
 }
